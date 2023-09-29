@@ -1,2 +1,1 @@
 # Bidding System
-# bidding-system

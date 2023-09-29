@@ -19,3 +19,6 @@
 - The auctioneer sets the time limit
 - Users cannot bid higher than the ask price
 - Assuming the no region limits - A product can be sold and can be bid from any where.
+- A user can post a product for auction and the same user can bid on another.
+- A user can only post 1 x product of same product type for simplicity
+
