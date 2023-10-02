@@ -8,7 +8,7 @@ Facebook Marketplace, a platform designed for users to buy and sell goods region
 
 The introduction of a bidding system to Facebook Marketplace serves several key purposes. 
 
-It's designed to establish a fair and transparent trading environment. Historically, sellers had the sole discretion to set prices, sometimes leading to ambiguity and unfairness. With the bidding system, prices are determined by market demand, ensuring fairness for both buyers and sellers. This initiative aims to enhance user engagement. By introducing an interactive bidding process, Facebook Marketplace becomes more dynamic and captivating. Users can actively participate in auctions, negotiate prices, and engage with others on the platform, making the overall experience more enjoyable and encouraging regular usage.
+With the bidding system, prices are determined by market demand, ensuring fairness for both buyers and sellers. This initiative aims to enhance user engagement. Make Facebook Marketplace becomes more dynamic and captivating. Users should be able to actively participate in auctions, negotiate prices, and engage with others on the platform, making the overall experience and encouraging regular usage.
 
 The bidding system is expected to attract a broader user base. The newfound interactivity and user-friendliness may draw in individuals who previously might not have considered using Facebook Marketplace, contributing to its growth and popularity. Which will lead to potential increase in the overall revenue.
 
