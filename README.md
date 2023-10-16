@@ -13,3 +13,5 @@ Introducing bidding feature to the existing Facebook marketplace.
 - Rehan Khan
 
 [P1. Topic & Objectives: Introduction of Bidding System on Facebook Marketplace](P1.%20Topic%20&%20Objectives.md)
+
+[P2. Database Design, Initial ERD](P2.%20Database%20Design%2C%20Initial%20ERD.md)
