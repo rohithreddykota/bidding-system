@@ -8,7 +8,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 
 - Rohith Kumar Reddy Kota
 - Nikhil Godalla
-- Shreya Thakur
+- Shreya Jayesh Thakur
 - Siddhartha Ravilla
 - Rehan Khan
 
