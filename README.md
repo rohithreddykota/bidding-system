@@ -7,7 +7,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 ## Group Members
 
 - Rohith Kumar Reddy Kota
-- Nikhil Goddala
+- Nikhil Godalla
 - Shreya Thakur
 - Siddhartha Ravilla
 - Rehan Khan
