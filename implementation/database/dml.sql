@@ -315,13 +315,13 @@ INSERT INTO Block
   Reason
 )
 VALUES
-(1, 1, '2023-11-10', 'Seller has poor feedback'),
-(1, 2, '2023-11-10', 'Seller does not ship internationally'),
-(2, 3, '2023-11-10', 'Seller has high shipping fees'),
-(2, 4, '2023-11-10', 'Seller has slow response time'),
-(3, 5, '2023-11-10', 'Seller has negative reviews'),
-(3, 6, '2023-11-10', 'Seller has counterfeit products'),
-(4, 7, '2023-11-10', 'Seller has poor customer service'),
-(4, 8, '2023-11-10', 'Seller has inaccurate product descriptions'),
-(5, 9, '2023-11-10', 'Seller has high return fees'),
-(5, 10, '2023-11-10', 'Seller has unreliable shipping methods');
+(1, 1, '2023-11-10', 'Spam'),
+(1, 2, '2023-11-10', 'Inappropriate'),
+(2, 3, '2023-11-10', 'Other'),
+(2, 4, '2023-11-10', 'Spam'),
+(3, 5, '2023-11-10', 'Inappropriate'),
+(3, 6, '2023-11-10', 'Spam'),
+(4, 7, '2023-11-10', 'Inappropriate'),
+(4, 8, '2023-11-10', 'Spam'),
+(5, 9, '2023-11-10', 'Spam'),
+(5, 10, '2023-11-10', 'Spam');

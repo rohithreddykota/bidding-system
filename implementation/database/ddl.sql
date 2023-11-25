@@ -182,7 +182,7 @@ CREATE TABLE AdItemWatchList
 (
   AdItemID INT NOT NULL,
   WatchListID INT NOT NULL,
-  EventType VARCHAR(255) NOT NULL CONSTRAINT AdItemWatchListEventType_CHK CHECK (AdItemStatus IN ('Active', 'Inactive', 'Sold')),
+  EventType VARCHAR(255) NOT NULL CONSTRAINT AdItemWatchListEventType_CHK CHECK (EventType IN ('Active', 'Inactive', 'Sold')),
   EventTimestamp DATETIME NOT NULL,
   CONSTRAINT AdItemWatchList_PK PRIMARY KEY (AdItemID, WatchListID),
   CONSTRAINT AdItemWatchList_FK1 FOREIGN KEY (AdItemID) REFERENCES AdItem(AdItemID),
