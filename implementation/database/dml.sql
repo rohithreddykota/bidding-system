@@ -122,16 +122,30 @@ INSERT INTO AdItem
   AdDescription
   )
 VALUES
+  -- Category 1
   (1, 1, 1, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 2, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 3, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 4, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 5, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 6, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 7, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 8, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 9, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue'),
-  (1, 1, 10, 1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue');
+  (1, 1, 2, 1, 'Samsung Galaxy S21 Ultra', 'Samsung Galaxy S21 Ultra 256GB Phantom Black'),
+  (1, 1, 3, 1, 'Google Pixel 5', 'Google Pixel 5 128GB Just Black'),
+  (1, 1, 4, 1, 'OnePlus 9 Pro', 'OnePlus 9 Pro 256GB Morning Mist'),
+  (1, 1, 5, 1, 'Xiaomi Mi 11', 'Xiaomi Mi 11 256GB Midnight Gray'),
+  -- Category 2
+  (1, 2, 6, 1, 'Sony PlayStation 5', 'Sony PlayStation 5 Console'),
+  (1, 2, 7, 1, 'Microsoft Xbox Series X', 'Microsoft Xbox Series X Console'),
+  (1, 2, 8, 1, 'Nintendo Switch', 'Nintendo Switch Console'),
+  (1, 2, 9, 1, 'Sony PlayStation 4', 'Sony PlayStation 4 Console'),
+  (1, 2, 10, 1, 'Microsoft Xbox One X', 'Microsoft Xbox One X Console'),
+  -- Category 3
+  (1, 3, 1, 1, 'Apple MacBook Pro', 'Apple MacBook Pro 13" M1 Chip 256GB'),
+  (1, 3, 2, 1, 'Dell XPS 13', 'Dell XPS 13 9300 13.4" 512GB'),
+  (1, 3, 3, 1, 'HP Spectre x360', 'HP Spectre x360 13.3" 512GB'),
+  (1, 3, 4, 1, 'Lenovo ThinkPad X1 Carbon', 'Lenovo ThinkPad X1 Carbon 14" 1TB'),
+  (1, 3, 5, 1, 'Asus ROG Zephyrus G14', 'Asus ROG Zephyrus G14 14" 1TB'),
+  -- Category 4
+  (1, 4, 6, 1, 'Canon EOS R5', 'Canon EOS R5 Mirrorless Camera'),
+  (1, 4, 7, 1, 'Nikon Z7 II', 'Nikon Z7 II Mirrorless Camera'),
+  (1, 4, 8, 1, 'Sony Alpha A7 III', 'Sony Alpha A7 III Mirrorless Camera'),
+  (1, 4, 9, 1, 'Fujifilm X-T4', 'Fujifilm X-T4 Mirrorless Camera'),
+  (1, 4, 10, 1, 'Panasonic Lumix GH5', 'Panasonic Lumix GH5 Mirrorless Camera');
 
 INSERT INTO Auction
   (
@@ -143,14 +157,16 @@ INSERT INTO Auction
   EndDate
   )
 VALUES
-  (1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (2, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (3, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (4, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (5, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (6, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (7, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00'),
-  (8, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-04-01 00:00:00', '2021-04-30 00:00:00');
+  (1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-11-10', '2021-11-17'),
+  (2, 'Samsung Galaxy S21 Ultra', 'Samsung Galaxy S21 Ultra 256GB Phantom Black', 900.00, '2021-11-10', '2021-11-17'),
+  (3, 'Google Pixel 5', 'Google Pixel 5 128GB Just Black', 800.00, '2021-11-10', '2021-11-17'),
+  (4, 'OnePlus 9 Pro', 'OnePlus 9 Pro 256GB Morning Mist', 700.00, '2021-11-10', '2021-11-17'),
+  (5, 'Xiaomi Mi 11', 'Xiaomi Mi 11 256GB Midnight Gray', 600.00, '2021-11-10', '2021-11-17'),
+  (6, 'Sony PlayStation 5', 'Sony PlayStation 5 Console', 500.00, '2021-11-10', '2021-11-17'),
+  (7, 'Microsoft Xbox Series X', 'Microsoft Xbox Series X Console', 400.00, '2021-11-10', '2021-11-17'),
+  (8, 'Nintendo Switch', 'Nintendo Switch Console', 300.00, '2021-11-10', '2021-11-17'),
+  (9, 'Sony PlayStation 4', 'Sony PlayStation 4 Console', 200.00, '2021-11-10', '2021-11-17'),
+  (10, 'Microsoft Xbox One X', 'Microsoft Xbox One X Console', 100.00, '2021-11-10', '2021-11-17');
 
 INSERT INTO Feedback
   (
@@ -170,3 +186,142 @@ VALUES
   (8, 8, 'Good', 5),
   (9, 9, 'Good', 5),
   (10, 10, 'Good', 5);
+
+
+INSERT INTO Bid
+  (
+  AuctionID,
+  BidPrice,
+  BidTimestamp
+  )
+  VALUES 
+  (1, 1000.00, '2023-11-10'),
+  (2, 900.00, '2023-11-10'),
+  (3, 800.00, '2023-11-10'),
+  (4, 700.00, '2023-11-10'),
+  (5, 600.00, '2023-11-10'),
+  (6, 500.00, '2023-11-10'),
+  (7, 400.00, '2023-11-10'),
+  (8, 300.00, '2023-11-10'),
+  (9, 200.00, '2023-11-10'),
+  (10, 100.00, '2023-11-10');
+
+
+INSERT INTO BidLog
+  (
+    BidID,
+    BuyerID,
+    BidStatusID,
+    BidTimestamp
+  )
+  VALUES 
+  (1, 1, 1, '2023-11-10'),
+  (2, 2, 1, '2023-11-10'),
+  (3, 3, 1, '2023-11-10'),
+  (4, 4, 1, '2023-11-10'),
+  (5, 5, 1, '2023-11-10'),
+  (6, 6, 1, '2023-11-10'),
+  (7, 7, 1, '2023-11-10'),
+  (8, 8, 1, '2023-11-10'),
+  (9, 9, 1, '2023-11-10'),
+  (10, 10, 1, '2023-11-10');
+
+
+INSERT INTO WatchList
+  (
+    BuyerID,
+    WatchListName,
+    WatchListDescription,
+    WatchListTimestamp
+  )
+  VALUES 
+  (1, 'WatchList 1', 'WatchList 1 Description', '2023-11-10'),
+  (2, 'WatchList 2', 'WatchList 2 Description', '2023-11-10'),
+  (3, 'WatchList 3', 'WatchList 3 Description', '2023-11-10'),
+  (4, 'WatchList 4', 'WatchList 4 Description', '2023-11-10'),
+  (5, 'WatchList 5', 'WatchList 5 Description', '2023-11-10'),
+  (6, 'WatchList 6', 'WatchList 6 Description', '2023-11-10'),
+  (7, 'WatchList 7', 'WatchList 7 Description', '2023-11-10'),
+  (8, 'WatchList 8', 'WatchList 8 Description', '2023-11-10'),
+  (9, 'WatchList 9', 'WatchList 9 Description', '2023-11-10'),
+  (10, 'WatchList 10', 'WatchList 10 Description', '2023-11-10');
+
+
+INSERT INTO AdItemWatchList
+  (
+    AdItemID,
+    WatchListID,
+    EventType,
+    EventTimestamp
+  )
+  VALUES
+  (1, 1, 'Active', '2023-11-10'),
+  (2, 2, 'Active', '2023-11-10'),
+  (3, 3, 'Active', '2023-11-10'),
+  (4, 4, 'Active', '2023-11-10'),
+  (5, 5, 'Active', '2023-11-10'),
+  (6, 6, 'Active', '2023-11-10'),
+  (7, 7, 'Active', '2023-11-10'),
+  (8, 8, 'Active', '2023-11-10'),
+  (9, 9, 'Active', '2023-11-10'),
+  (10, 10, 'Active', '2023-11-10');
+
+
+INSERT INTO Alert
+(
+  BuyerID,
+  SellerID,
+  AuctionID,
+  AlertMessage,
+  AlertTimestamp,
+  AlertType
+)
+VALUES
+(1, 1, 1, 'Alert 1', '2023-11-10', 'Bid'),
+(2, 2, 2, 'Alert 2', '2023-11-10', 'Bid'),
+(3, 3, 3, 'Alert 3', '2023-11-10', 'Bid'),
+(4, 4, 4, 'Alert 4', '2023-11-10', 'Bid'),
+(5, 5, 5, 'Alert 5', '2023-11-10', 'Bid'),
+(6, 6, 6, 'Alert 6', '2023-11-10', 'Bid'),
+(7, 7, 7, 'Alert 7', '2023-11-10', 'Bid'),
+(8, 8, 8, 'Alert 8', '2023-11-10', 'Bid'),
+(9, 9, 9, 'Alert 9', '2023-11-10', 'Bid'),
+(10, 10, 10, 'Alert 10', '2023-11-10', 'Bid');
+
+INSERT INTO Chat
+(
+  BuyerID,
+  SellerID,
+  Message,
+  [Timestamp]
+)
+VALUES
+(1, 1, 'Hello, is the product available?', '2023-11-10'),
+(2, 2, 'Hi, I am interested in buying the item.', '2023-11-10'),
+(3, 3, 'Is the price negotiable?', '2023-11-10'),
+(4, 4, 'Can you provide more details about the product?', '2023-11-10'),
+(5, 5, 'What is the condition of the item?', '2023-11-10'),
+(6, 6, 'I would like to place a bid.', '2023-11-10'),
+(7, 7, 'Is there a warranty for the product?', '2023-11-10'),
+(8, 8, 'Can I schedule a viewing of the item?', '2023-11-10'),
+(9, 9, 'Are there any additional fees?', '2023-11-10'),
+(10, 10, 'What is the payment method?', '2023-11-10');
+
+INSERT INTO Block
+(
+  BuyerID,
+  SellerID,
+  BlockTimestamp,
+  Reason
+)
+VALUES
+(1, 1, '2023-11-10', 'Seller has poor feedback'),
+(1, 2, '2023-11-10', 'Seller does not ship internationally'),
+(2, 3, '2023-11-10', 'Seller has high shipping fees'),
+(2, 4, '2023-11-10', 'Seller has slow response time'),
+(3, 5, '2023-11-10', 'Seller has negative reviews'),
+(3, 6, '2023-11-10', 'Seller has counterfeit products'),
+(4, 7, '2023-11-10', 'Seller has poor customer service'),
+(4, 8, '2023-11-10', 'Seller has inaccurate product descriptions'),
+(5, 9, '2023-11-10', 'Seller has high return fees'),
+(5, 10, '2023-11-10', 'Seller has unreliable shipping methods');
