@@ -1,8 +1,8 @@
 ## Todo
 
-- [ ] Create DDL for all tables
-- [ ] Create DML for all tables (insert atleast 10 rows)
-- [ ] Create table level check constraints
+- [x] Create DDL for all tables
+- [x] Create DML for all tables (insert atleast 10 rows)
+- [x] Create table level check constraints
 - [ ] Create views for all tables
   - [ ] Use views in the dashboard
 - [ ] Create Computed Column based on UDF
@@ -26,45 +26,45 @@
 
 ### DDL
 
-- [ ] Create table User
-- [ ] Create table Buyer
-- [ ] Create table Seller
-- [ ] Create table Chat
-- [ ] Create table Block
-- [ ] Create table Admin
-- [ ] Create table AdItemCategory
-- [ ] Create table AdStatus
-- [ ] Create table AdItem
-- [ ] Create table Feedback
-- [ ] Create table Auction
-- [ ] Create table Alert
-- [ ] Create table WatchList
-- [ ] Create table AdItemWatchList
-- [ ] Create table Bid
-- [ ] Create table BidStatus
-- [ ] Create table BidLog
+- [x] Create table User
+- [x] Create table Buyer
+- [x] Create table Seller
+- [x] Create table Chat
+- [x] Create table Block
+- [x] Create table Admin
+- [x] Create table AdItemCategory
+- [x] Create table AdStatus
+- [x] Create table AdItem
+- [x] Create table Feedback
+- [x] Create table Auction
+- [x] Create table Alert
+- [x] Create table WatchList
+- [x] Create table AdItemWatchList
+- [x] Create table Bid
+- [x] Create table BidStatus
+- [x] Create table BidLog
 
 ## Add sample records to all tables
 
 ### DDL
 
-- [ ] Insert sample data into table User
-- [ ] Insert sample data into table Buyer
-- [ ] Insert sample data into table Seller
-- [ ] Insert sample data into table Chat
-- [ ] Insert sample data into table Block
-- [ ] Insert sample data into table Admin
-- [ ] Insert sample data into table AdItemCategory
-- [ ] Insert sample data into table AdStatus
-- [ ] Insert sample data into table AdItem
-- [ ] Insert sample data into table Feedback
-- [ ] Insert sample data into table Auction
-- [ ] Insert sample data into table Alert
-- [ ] Insert sample data into table WatchList
-- [ ] Insert sample data into table AdItemWatchList
-- [ ] Insert sample data into table Bid
-- [ ] Insert sample data into table BidStatus
-- [ ] Insert sample data into table BidLog
+- [x] Insert sample data into table User
+- [x] Insert sample data into table Buyer
+- [x] Insert sample data into table Seller
+- [x] Insert sample data into table Chat
+- [x] Insert sample data into table Block
+- [x] Insert sample data into table Admin
+- [x] Insert sample data into table AdItemCategory
+- [x] Insert sample data into table AdStatus
+- [x] Insert sample data into table AdItem
+- [x] Insert sample data into table Feedback
+- [x] Insert sample data into table Auction
+- [x] Insert sample data into table Alert
+- [x] Insert sample data into table WatchList
+- [x] Insert sample data into table AdItemWatchList
+- [x] Insert sample data into table Bid
+- [x] Insert sample data into table BidStatus
+- [x] Insert sample data into table BidLog
 
 ## Create table level check constraints
 
