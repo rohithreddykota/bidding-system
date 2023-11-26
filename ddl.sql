@@ -144,6 +144,7 @@ CREATE TABLE Auction
   Title VARCHAR(255) NOT NULL,
   AuctionDescription VARCHAR(255) NOT NULL,
   BasePrice DECIMAL(10,2) NOT NULL,
+  BuyNowPrice DECIMAL(10,2) NOT NULL,
   StartDate DATETIME NOT NULL,
   EndDate DATETIME NOT NULL,
   [Status] VARCHAR(25) CHECK ([Status] IN ('Active', 'Inactive')),
