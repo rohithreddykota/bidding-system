@@ -1,6 +1,7 @@
 Use BIDDING_SYSTEM
 Go
 
+-- bidprice should be greater than previous bid and less than or equal to buynowprice
 CREATE TRIGGER TRIGGER_Bid_Insert
 ON Bid
 INSTEAD OF INSERT
@@ -8,7 +9,11 @@ AS
 BEGIN
     IF (SELECT COUNT(*) FROM inserted) > 0
     BEGIN
-        IF (SELECT MAX(BidPrice) FROM Bid WHERE AuctionID IN (SELECT AuctionID FROM inserted)) >= (SELECT MIN(BidPrice) FROM inserted)
+        IF (
+            (SELECT MAX(BidPrice) FROM Bid WHERE AuctionID IN (SELECT AuctionID FROM inserted)) >= (SELECT MIN(BidPrice) FROM inserted)
+            OR
+            (SELECT MIN(BidPrice) FROM inserted) <= (SELECT BuyNowPrice FROM Auction WHERE AuctionID IN (SELECT AuctionID FROM inserted))
+        )
         BEGIN
             ROLLBACK;
         END
@@ -17,7 +22,7 @@ BEGIN
             INSERT INTO Bid (AuctionID, BidPrice, BidTimestamp)
             SELECT AuctionID, BidPrice, BidTimestamp FROM inserted;
         END
-    END
+    END
 END;
 
 
@@ -76,3 +81,64 @@ BEGIN
     INNER JOIN inserted ins ON a.AdItemID = ins.AdItemID
     WHERE ins.EndDate <= GETDATE() OR i.AdStatusID IN (2, 3, 4);
 END;
+
+
+-- Create trigger to check BuyNowPrice > BasePrice
+CREATE TRIGGER CheckBuyNowPrice
+ON Auction
+AFTER INSERT, UPDATE
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  IF (SELECT COUNT(*) FROM inserted WHERE BuyNowPrice < BasePrice) > 0
+  BEGIN
+    ROLLBACK;
+  END
+END;
+
+-- if bidprice matches buynow price, bid will be won and auction ends immediately
+
+CREATE TRIGGER TRIGGER_UpdateBidStatusAndAuction
+ON Bid
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE BidLog
+    SET BidStatusID = 2
+    FROM BidLog bl
+    INNER JOIN inserted i ON bl.BidID = i.BidID
+    INNER JOIN Auction a ON i.AuctionID = a.AuctionID
+    WHERE i.BidPrice = a.BuyNowPrice;
+
+    UPDATE Auction
+    SET Status = 'Inactive'
+    FROM Auction a
+    INNER JOIN inserted i ON a.AuctionID = i.AuctionID
+    WHERE i.BidPrice = a.BuyNowPrice;
+END;
+
+
+-- if bid is won, aditem status changes to sold
+
+CREATE TRIGGER TRIGGER_UpdateAdStatusOnBidWon
+ON BidLog
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF UPDATE(BidStatusID)
+    BEGIN
+        UPDATE AdItem
+        SET AdStatusID = 3
+        FROM AdItem ai
+		inner join Auction a on a.AdItemID = ai.AdItemID
+		inner join Bid b on b.AuctionID = a.AuctionID
+        INNER JOIN inserted i ON b.BidID = i.BidID
+        WHERE i.BidStatusID = 2;
+    END
+END;
+
