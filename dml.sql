@@ -157,21 +157,22 @@ INSERT INTO Auction
   Title,
   AuctionDescription,
   BasePrice,
+  BuyNowPrice,
   StartDate,
   EndDate,
   [status]
   )
 VALUES
-  (1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-11-10', '2021-11-17','Active'),
-  (2, 'Samsung Galaxy S21 Ultra', 'Samsung Galaxy S21 Ultra 256GB Phantom Black', 900.00, '2021-11-10', '2021-11-17','Active'),
-  (3, 'Google Pixel 5', 'Google Pixel 5 128GB Just Black', 800.00, '2021-11-10', '2021-11-17','Active'),
-  (4, 'OnePlus 9 Pro', 'OnePlus 9 Pro 256GB Morning Mist', 700.00, '2021-11-10', '2021-11-17','Active'),
-  (5, 'Xiaomi Mi 11', 'Xiaomi Mi 11 256GB Midnight Gray', 600.00, '2021-11-10', '2021-11-17','Active'),
-  (6, 'Sony PlayStation 5', 'Sony PlayStation 5 Console', 500.00, '2021-11-10', '2021-11-17','Active'),
-  (7, 'Microsoft Xbox Series X', 'Microsoft Xbox Series X Console', 400.00, '2021-11-10', '2021-11-17','Active'),
-  (8, 'Nintendo Switch', 'Nintendo Switch Console', 300.00, '2021-11-10', '2021-11-17','Active'),
-  (9, 'Sony PlayStation 4', 'Sony PlayStation 4 Console', 200.00, '2021-11-10', '2021-11-17','Active'),
-  (10, 'Microsoft Xbox One X', 'Microsoft Xbox One X Console', 100.00, '2021-11-10', '2021-11-17','Active');
+  (1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, 1200.00,'2021-11-10', '2021-11-17','Active'),
+  (2, 'Samsung Galaxy S21 Ultra', 'Samsung Galaxy S21 Ultra 256GB Phantom Black', 900.00, 945.00, '2021-11-10', '2021-11-17','Active'),
+  (3, 'Google Pixel 5', 'Google Pixel 5 128GB Just Black', 800.00, 850.00, '2021-11-10', '2021-11-17','Active'),
+  (4, 'OnePlus 9 Pro', 'OnePlus 9 Pro 256GB Morning Mist', 700.00, 702.00, '2021-11-10', '2021-11-17','Active'),
+  (5, 'Xiaomi Mi 11', 'Xiaomi Mi 11 256GB Midnight Gray', 600.00, 610.00, '2021-11-10', '2021-11-17','Active'),
+  (6, 'Sony PlayStation 5', 'Sony PlayStation 5 Console', 500.00, 520.00, '2021-11-10', '2021-11-17','Active'),
+  (7, 'Microsoft Xbox Series X', 'Microsoft Xbox Series X Console', 400.00, 410.00, '2021-11-10', '2021-11-17','Active'),
+  (8, 'Nintendo Switch', 'Nintendo Switch Console', 300.00, 340.00,'2021-11-10', '2021-11-17','Active'),
+  (9, 'Sony PlayStation 4', 'Sony PlayStation 4 Console', 200.00, 234.00,'2021-11-10', '2021-11-17','Active'),
+  (10, 'Microsoft Xbox One X', 'Microsoft Xbox One X Console', 100.00, 115.00,'2021-11-10', '2021-11-17','Active');
 
 INSERT INTO Feedback
   (
