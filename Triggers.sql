@@ -23,7 +23,7 @@ END;
 
 --Prevents the addition of new auction for an aditem if an existing auction for the auctionitem is active and the inserting startdate is greater than enddate
 
-CREATE TRIGGER TRIGGER_PreventDuplicateAuction
+ALTER TRIGGER TRIGGER_PreventDuplicateAuction
 ON Auction
 INSTEAD OF INSERT
 AS
@@ -36,7 +36,7 @@ BEGIN
         FROM inserted i
         INNER JOIN AdItem a ON i.AdItemID = a.AdItemID
         INNER JOIN Auction existingAuction ON a.AdItemID = existingAuction.AdItemID
-        WHERE existingAuction.EndDate > i.StartDate
+        WHERE existingAuction.[status] = 'Active'
     )
     BEGIN
         ROLLBACK;
