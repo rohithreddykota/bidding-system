@@ -1,72 +1,80 @@
-                                               //-- Stored procedures
+                                              -- Stored procedures
 
-                                   //-- Stored procedure for Inserting new User
+ use BIDDING_SYSTEM                                -- Stored procedure for Inserting new User
 
 CREATE PROCEDURE InsertNewUser
-  @UserName VARCHAR(255),
-  @UserEmail VARCHAR(255),
-  @UserPassword VARCHAR(255),
-  @Gender VARCHAR(255),
-  @UserType VARCHAR(255),
-  @IsBuyer BIT = 0,  
-  @IsSeller BIT = 0  
+    @FirstName VARCHAR(255),
+    @LastName VARCHAR(255),
+    @UserEmail VARCHAR(255),
+    @UserPassword VARCHAR(255),
+    @Gender VARCHAR(255),
+    @DateOfBirth DATE,
+    @UserType VARCHAR(255)
+    
 AS
 BEGIN
-  SET NOCOUNT ON;
-  INSERT INTO [User] (UserName, UserEmail, UserPassword, Gender, UserType)
-  VALUES (@UserName, @UserEmail, @UserPassword, @Gender, @UserType);
-  DECLARE @UserID INT;
-  SET @UserID = SCOPE_IDENTITY();
-  IF (@IsBuyer = 1)
-  BEGIN
-    INSERT INTO Buyer (BuyerID)
-    VALUES (@UserID);
-  END
-  IF (@IsSeller = 1)
-  BEGIN
-    INSERT INTO Seller (SellerID)
-    VALUES (@UserID);
-  END
+    -- Check if the user with the given email already exists
+    IF EXISTS (SELECT 1 FROM [User] WHERE UserEmail = @UserEmail)
+    BEGIN
+        RETURN;
+    END
+
+    -- Insert the new user
+    INSERT INTO [User] (User_FirstName, User_LastName, UserEmail, UserPassword, Gender, DateofBirth, UserType, User_FullName, Age)
+    VALUES (@FirstName, @LastName, @UserEmail, @UserPassword, @Gender, @DateOfBirth, @UserType, [dbo].GetFullName(@FirstName, @LastName),[dbo].CalculateAge(@DateOfBirth));
+
 END;
  
 
-EXEC InsertNewUser
-  @UserName = 'John Doe',
-  @UserEmail = 'john.doe@example.com',
-  @UserPassword = 'password123',
-  @Gender = 'Male',
-  @UserType = 'Regular',
-  @IsBuyer = 1;
-
+EXEC [dbo].InsertNewUser
+    @FirstName = 'John',
+    @LastName = 'Doe',
+    @UserEmail = 'john.doe@example.com',
+    @UserPassword = 'hashed_password',
+    @Gender = 'Male',
+    @DateOfBirth = '1990-01-01',
+    @UserType = 'Regular';
                                      //-- Stored procedure for Updating a User
 
   CREATE PROCEDURE UpdateUser
-  @UserID INT,
-  @UserName VARCHAR(255),
-  @UserEmail VARCHAR(255),
-  @UserPassword VARCHAR(255),
-  @Gender VARCHAR(255),
-  @UserType VARCHAR(255)
+    @UserID INT,
+    @FirstName VARCHAR(255),
+    @LastName VARCHAR(255),
+    @UserEmail VARCHAR(255),
+    @UserPassword VARCHAR(255),
+    @Gender VARCHAR(255),
+    @DateOfBirth DATE,
+    @UserType VARCHAR(255)
+    
 AS
 BEGIN
-  SET NOCOUNT ON;
-  UPDATE [User]
-  SET UserName = @UserName,
-      UserEmail = @UserEmail,
-      UserPassword = @UserPassword,
-      Gender = @Gender,
-      UserType = @UserType
-  WHERE UserID = @UserID;
+    -- Check if the user with the given email already exists (excluding the current user)
+    IF EXISTS (SELECT 1 FROM [User] WHERE UserEmail = @UserEmail AND UserID <> @UserID)
+    BEGIN
+        RETURN;
+    END
+
+    -- Update the user information
+    UPDATE [User]
+    SET
+        User_FirstName = @FirstName,
+        User_LastName = @LastName,
+        UserEmail = @UserEmail,
+        UserPassword = @UserPassword,
+        Gender = @Gender,
+        DateofBirth = @DateOfBirth,
+        UserType = @UserType,
+        User_FullName = [dbo].GetFullName(@FirstName,@LastName),
+        Age = [dbo].CalculateAge(@DateOfBirth)
+    WHERE UserID = @UserID;
+
 END;
 
-
-EXEC UpdateUser 
-  @UserID = 1,  
-  @UserName = 'shreya',
-  @UserEmail = 'shreya@example.com',
-  @UserPassword = 'thakur',
-  @Gender = 'female',
-  @UserType = 'Regular';
+  
+  
+  
+  
+ 
 
                                             //-- Stored procedure for Insert AdItem
 
@@ -99,7 +107,7 @@ AS
 BEGIN
   SET NOCOUNT ON;
 
-  SELECT DISTINCT B.BuyerID, U.UserName, U.UserEmail
+  SELECT DISTINCT B.BuyerID, U.User_FullName, U.UserEmail
   FROM Buyer B
   INNER JOIN AdItem AI ON B.BuyerID = AI.SellerID
   INNER JOIN AdItemCategory AC ON AI.CategoryID = AC.CategoryID
@@ -148,79 +156,4 @@ EXEC DeleteFeedback
 
 
 
-                                                                        //-- Views
-
-					              //-- Views to display a list of active auctions
-CREATE VIEW ActiveAuctionsView AS
-SELECT
-    A.AuctionID,
-    A.Title AS AuctionTitle,
-    A.AuctionDescription,
-    A.BasePrice,
-    A.StartDate,
-    A.EndDate,
-    AI.Title AS AdItemTitle,
-    AI.AdDescription,
-    AI.SellerID,
-    S.SellerRating
-FROM
-    Auction A
-JOIN AdItem AI ON A.AdItemID = AI.AdItemID
-JOIN Seller S ON AI.SellerID = S.SellerID
-WHERE
-    A.StartDate <= GETDATE() AND A.EndDate >= GETDATE();
-
-
-                                            	//-- Views to display a list of highly rated sellers
-
-CREATE VIEW HighRatedSellersView AS
-SELECT
-    S.SellerID,
-    S.SellerRating,
-    S.SellerPaymentInfo,
-    U.UserName,
-    U.UserEmail
-FROM
-    Seller S
-JOIN [User] U ON S.SellerID = U.UserID
-WHERE
-    S.SellerRating > 4;
-
-	                                           //-- Views to display a list of buyers watchlist 
-                                           
-                                           
-	CREATE VIEW BuyerWatchlistView AS
-SELECT
-    W.WatchListID,
-    W.BuyerID,
-    W.WatchListName,
-    W.WatchListDescription,
-    AWL.AdItemID,
-    AWL.EventType,
-    AWL.EventTimestamp,
-    AI.Title AS AdItemTitle,
-    AI.AdDescription,
-    AI.CategoryID
-FROM
-    WatchList W
-JOIN AdItemWatchList AWL ON W.WatchListID = AWL.WatchListID
-JOIN AdItem AI ON AWL.AdItemID = AI.AdItemID;
-
-
-                     
-					                            //-- Views to display active users from user
-												
-CREATE VIEW ActiveUsersView AS
-SELECT
-    U.UserID,
-    U.UserName,
-    U.UserEmail,
-    U.Gender,
-    U.UserType
-FROM
-    [User] U
-WHERE
-    U.UserID IN (SELECT BuyerID FROM Buyer)
-    OR U.UserID IN (SELECT SellerID FROM Seller);
-
-	                                                
+ 	                                                
