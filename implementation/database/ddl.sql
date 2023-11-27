@@ -18,14 +18,18 @@ GO
 CREATE TABLE [User]
 (
   UserID INT NOT NULL IDENTITY(1,1),
-  -- Use IDENTITY instead of AUTO_INCREMENT for SQL Server
-  UserName VARCHAR(255) NOT NULL,
+  -- Use IDENTITY to generate UserID
+  User_FirstName VARCHAR(255) NOT NULL,
+  User_LastName VARCHAR(255) NOT NULL,
   UserEmail VARCHAR(255) NOT NULL UNIQUE,
   -- Add UNIQUE constraint for UserEmail
   UserPassword VARCHAR(255) NOT NULL,
   -- todo: encrypt password
   Gender VARCHAR(255) NOT NULL,
+  DateofBirth DATE NOT NULL,
   UserType VARCHAR(255) NOT NULL,
+  User_FullName VARCHAR(255),
+  Age INT,
   CONSTRAINT User_PK PRIMARY KEY (UserID)
 );
 
@@ -140,8 +144,10 @@ CREATE TABLE Auction
   Title VARCHAR(255) NOT NULL,
   AuctionDescription VARCHAR(255) NOT NULL,
   BasePrice DECIMAL(10,2) NOT NULL,
+  BuyNowPrice DECIMAL(10,2) NOT NULL,
   StartDate DATETIME NOT NULL,
   EndDate DATETIME NOT NULL,
+  [Status] VARCHAR(25) CHECK ([Status] IN ('Active', 'Inactive')),
   CONSTRAINT Auction_PK PRIMARY KEY (AuctionID),
   CONSTRAINT Auction_FK FOREIGN KEY (AdItemID) REFERENCES AdItem(AdItemID)
 );
@@ -168,7 +174,7 @@ CREATE TABLE Alert
 CREATE TABLE WatchList
 (
   WatchListID INT NOT NULL IDENTITY(1,1),
-  BuyerID INT NOT NULL,
+  BuyerID INT NOT NULL UNIQUE,
   WatchListName VARCHAR(255) NOT NULL,
   WatchListDescription VARCHAR(255) NOT NULL,
   WatchListTimestamp DATETIME NOT NULL,

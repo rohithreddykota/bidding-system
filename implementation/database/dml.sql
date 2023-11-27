@@ -58,23 +58,27 @@ VALUES
 
 INSERT INTO [User]
   (
-  UserName,
+  User_FirstName,
+  User_LastName,
   UserEmail,
   UserPassword,
   Gender,
-  UserType
+  DateofBirth,
+  UserType,
+  User_FullName,
+  Age
   )
 VALUES
-  ('Alice', 'alice@gmail.com', 'password123', 'Female', 'Regular'),
-  ('Bob', 'bob@yahoo.com', 'qwerty', 'Male', 'Regular'),
-  ('Charlie', 'charlie@hotmail.com', 'abc123', 'Male', 'Regular'),
-  ('Diana', 'diana@gmail.com', 'letmein', 'Female', 'Regular'),
-  ('Ethan', 'ethan@yahoo.com', 'securepassword', 'Male', 'Regular'),
-  ('Fiona', 'fiona@hotmail.com', 'mypassword', 'Female', 'Regular'),
-  ('George', 'george@gmail.com', 'password123', 'Male', 'Regular'),
-  ('Hannah', 'hannah@yahoo.com', 'ilovecoding', 'Female', 'Regular'),
-  ('Ian', 'ian@hotmail.com', 'abc123', 'Male', 'Regular'),
-  ('Julia', 'julia@gmail.com', 'letmein', 'Female', 'Regular');
+  ('John', 'Doe', 'john.doe@example.com', 'password123', 'Male', '1990-01-15', 'Regular', 'John Doe', 32),
+('Jane', 'Smith', 'jane.smith@example.com', 'pass456', 'Female', '1985-08-22', 'Admin', 'Jane Smith', 37),
+('Bob', 'Johnson', 'bob.johnson@example.com', 'securePwd', 'Male', '1995-03-10', 'Regular', 'Bob Johnson', 27),
+('Alice', 'Williams', 'alice.williams@example.com', 'p@ssw0rd', 'Female', '1992-11-05', 'Regular', 'Alice Williams', 30),
+('Michael', 'Miller', 'michael.miller@example.com', 'secret123', 'Male', '1988-07-18', 'Regular', 'Michael Miller', 34),
+('Emily', 'Taylor', 'emily.taylor@example.com', 'securePwd123', 'Female', '1983-04-30', 'Admin', 'Emily Taylor', 39),
+('Daniel', 'Brown', 'daniel.brown@example.com', 'brownPass', 'Male', '1998-09-12', 'Regular', 'Daniel Brown', 24),
+('Olivia', 'Jones', 'olivia.jones@example.com', 'passOlivia', 'Female', '1994-06-25', 'Regular', 'Olivia Jones', 28),
+('William', 'Davis', 'william.davis@example.com', 'davisPwd', 'Male', '1996-02-08', 'Regular', 'William Davis', 26),
+('Sophia', 'Clark', 'sophia.clark@example.com', 'passSophia', 'Female', '1991-12-03', 'Regular', 'Sophia Clark', 31);
 
 
 INSERT INTO Seller
@@ -153,20 +157,22 @@ INSERT INTO Auction
   Title,
   AuctionDescription,
   BasePrice,
+  BuyNowPrice,
   StartDate,
-  EndDate
+  EndDate,
+  [status]
   )
 VALUES
-  (1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, '2021-11-10', '2021-11-17'),
-  (2, 'Samsung Galaxy S21 Ultra', 'Samsung Galaxy S21 Ultra 256GB Phantom Black', 900.00, '2021-11-10', '2021-11-17'),
-  (3, 'Google Pixel 5', 'Google Pixel 5 128GB Just Black', 800.00, '2021-11-10', '2021-11-17'),
-  (4, 'OnePlus 9 Pro', 'OnePlus 9 Pro 256GB Morning Mist', 700.00, '2021-11-10', '2021-11-17'),
-  (5, 'Xiaomi Mi 11', 'Xiaomi Mi 11 256GB Midnight Gray', 600.00, '2021-11-10', '2021-11-17'),
-  (6, 'Sony PlayStation 5', 'Sony PlayStation 5 Console', 500.00, '2021-11-10', '2021-11-17'),
-  (7, 'Microsoft Xbox Series X', 'Microsoft Xbox Series X Console', 400.00, '2021-11-10', '2021-11-17'),
-  (8, 'Nintendo Switch', 'Nintendo Switch Console', 300.00, '2021-11-10', '2021-11-17'),
-  (9, 'Sony PlayStation 4', 'Sony PlayStation 4 Console', 200.00, '2021-11-10', '2021-11-17'),
-  (10, 'Microsoft Xbox One X', 'Microsoft Xbox One X Console', 100.00, '2021-11-10', '2021-11-17');
+  (1, 'Apple iPhone 12 Pro Max', 'Apple iPhone 12 Pro Max 128GB Pacific Blue', 1000.00, 1200.00,'2021-11-10', '2021-11-17','Active'),
+  (2, 'Samsung Galaxy S21 Ultra', 'Samsung Galaxy S21 Ultra 256GB Phantom Black', 900.00, 945.00, '2021-11-10', '2021-11-17','Active'),
+  (3, 'Google Pixel 5', 'Google Pixel 5 128GB Just Black', 800.00, 850.00, '2021-11-10', '2021-11-17','Active'),
+  (4, 'OnePlus 9 Pro', 'OnePlus 9 Pro 256GB Morning Mist', 700.00, 702.00, '2021-11-10', '2021-11-17','Active'),
+  (5, 'Xiaomi Mi 11', 'Xiaomi Mi 11 256GB Midnight Gray', 600.00, 610.00, '2021-11-10', '2021-11-17','Active'),
+  (6, 'Sony PlayStation 5', 'Sony PlayStation 5 Console', 500.00, 520.00, '2021-11-10', '2021-11-17','Active'),
+  (7, 'Microsoft Xbox Series X', 'Microsoft Xbox Series X Console', 400.00, 410.00, '2021-11-10', '2021-11-17','Active'),
+  (8, 'Nintendo Switch', 'Nintendo Switch Console', 300.00, 340.00,'2021-11-10', '2021-11-17','Active'),
+  (9, 'Sony PlayStation 4', 'Sony PlayStation 4 Console', 200.00, 234.00,'2021-11-10', '2021-11-17','Active'),
+  (10, 'Microsoft Xbox One X', 'Microsoft Xbox One X Console', 100.00, 115.00,'2021-11-10', '2021-11-17','Active');
 
 INSERT INTO Feedback
   (
@@ -325,3 +331,4 @@ VALUES
 (4, 8, '2023-11-10', 'Spam'),
 (5, 9, '2023-11-10', 'Spam'),
 (5, 10, '2023-11-10', 'Spam');
+
