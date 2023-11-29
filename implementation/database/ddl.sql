@@ -1,30 +1,73 @@
+USE MASTER;
+GO
+
+-- Drop database if it exists
+IF EXISTS (SELECT NAME FROM SYS.DATABASES WHERE NAME = N'BIDDING_SYSTEM')
+BEGIN
+    ALTER DATABASE BIDDING_SYSTEM SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE BIDDING_SYSTEM;
+END
+GO
 
 -- Create database
-USE MASTER
+CREATE DATABASE BIDDING_SYSTEM;
 GO
-IF EXISTS (SELECT NAME
-FROM SYS.DATABASES
-WHERE NAME = N'BIDDING_SYSTEM')
-  ALTER DATABASE BIDDING_SYSTEM SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+
+-- Enable TDE on the database
+USE BIDDING_SYSTEM;
 GO
-DROP DATABASE BIDDING_SYSTEM
+
+IF NOT EXISTS (SELECT * FROM sys.symmetric_keys WHERE symmetric_key_id = 101)
+BEGIN
+    -- Create a master key if it doesn't exist
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'SuperStrongPass123';
+    PRINT 'Master key created successfully.';
+END
+ELSE
+BEGIN
+    PRINT 'Master key already exists.';
+END
 GO
-CREATE DATABASE BIDDING_SYSTEM
+
+IF NOT EXISTS (SELECT * FROM sys.certificates WHERE name = 'BiddingSystemTDECert')
+BEGIN
+    -- Create a certificate for TDE
+    CREATE CERTIFICATE BiddingSystemTDECert WITH SUBJECT = 'TDE Certificate For Bidding System';
+    PRINT 'Certificate created successfully.';
+END
+ELSE
+BEGIN
+    PRINT 'Certificate already exists.';
+END
 GO
-USE BIDDING_SYSTEM
+
+IF NOT EXISTS (SELECT * FROM sys.dm_database_encryption_keys WHERE database_id = DB_ID() AND encryption_state = 3)
+BEGIN
+    -- Create a database encryption key (DEK) using the certificate
+    CREATE DATABASE ENCRYPTION KEY
+    WITH ALGORITHM = AES_256
+    ENCRYPTION BY SERVER CERTIFICATE BiddingSystemTDECert;
+    PRINT 'Database encryption key created successfully.';
+END
+ELSE
+BEGIN
+    PRINT 'Database encryption key already exists or the database is not encrypted.';
+END
+GO
+
+-- Enable TDE on the database
+ALTER DATABASE BIDDING_SYSTEM SET ENCRYPTION ON;
 GO
 
 -- Create table User
 CREATE TABLE [User]
 (
   UserID INT NOT NULL IDENTITY(1,1),
-  -- Use IDENTITY to generate UserID
   User_FirstName VARCHAR(255) NOT NULL,
   User_LastName VARCHAR(255) NOT NULL,
   UserEmail VARCHAR(255) NOT NULL UNIQUE,
   -- Add UNIQUE constraint for UserEmail
   UserPassword VARCHAR(255) NOT NULL,
-  -- todo: encrypt password
   Gender VARCHAR(255) NOT NULL,
   DateofBirth DATE NOT NULL,
   UserType VARCHAR(255) NOT NULL,
@@ -32,6 +75,7 @@ CREATE TABLE [User]
   Age INT,
   CONSTRAINT User_PK PRIMARY KEY (UserID)
 );
+
 
 -- Create table Buyer
 CREATE TABLE Buyer
@@ -84,7 +128,7 @@ CREATE TABLE Admin
   AdminName VARCHAR(255) NOT NULL,
   AdminEmail VARCHAR(255) NOT NULL UNIQUE,
   -- Add UNIQUE constraint for AdminEmail
-  AdminPassword VARCHAR(255) NOT NULL,
+  AdminPassword VARBINARY(255) NOT NULL,
   AdminRole VARCHAR(255) NOT NULL CONSTRAINT AdminRole_CHK CHECK (AdminRole IN ('Super', 'Regular'))
     CONSTRAINT Admin_PK PRIMARY KEY (AdminID)
 );

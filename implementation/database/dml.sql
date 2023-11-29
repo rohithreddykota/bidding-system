@@ -9,16 +9,16 @@ INSERT INTO [Admin]
   AdminRole
   )
 VALUES
-  ('Neil', 'neil@facbook.com', 'password', 'Super'),
-  ('John', 'john@gmail.com', '123456', 'Regular'),
-  ('Emma', 'emma@yahoo.com', 'qwerty', 'Regular'),
-  ('Sarah', 'sarah@hotmail.com', 'abc123', 'Super'),
-  ('Michael', 'michael@gmail.com', 'password123', 'Regular'),
-  ('Emily', 'emily@gmail.com', 'ilovecoding', 'Super'),
-  ('David', 'david@yahoo.com', 'securepassword', 'Regular'),
-  ('Olivia', 'olivia@hotmail.com', 'mypassword', 'Super'),
-  ('James', 'james@gmail.com', 'password123', 'Regular'),
-  ('Sophia', 'sophia@yahoo.com', 'letmein', 'Super');
+  ('Neil', 'neil@facbook.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'password'), 'Super'),
+  ('John', 'john@gmail.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', '123456'), 'Regular'),
+  ('Emma', 'emma@yahoo.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'qwerty'), 'Regular'),
+  ('Sarah', 'sarah@hotmail.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'abc123'), 'Super'),
+  ('Michael', 'michael@gmail.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'password123'), 'Regular'),
+  ('Emily', 'emily@gmail.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'ilovecoding'), 'Super'),
+  ('David', 'david@yahoo.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'securepassword'), 'Regular'),
+  ('Olivia', 'olivia@hotmail.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'mypassword'), 'Super'),
+  ('James', 'james@gmail.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'password123'), 'Regular'),
+  ('Sophia', 'sophia@yahoo.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'letmein'), 'Super');
 
 INSERT INTO AdItemCategory
   (
@@ -69,29 +69,26 @@ INSERT INTO [User]
   Age
   )
 VALUES
-  ('John', 'Doe', 'john.doe@example.com', 'password123', 'Male', '1990-01-15', 'Regular', 'John Doe', 32),
-('Jane', 'Smith', 'jane.smith@example.com', 'pass456', 'Female', '1985-08-22', 'Admin', 'Jane Smith', 37),
-('Bob', 'Johnson', 'bob.johnson@example.com', 'securePwd', 'Male', '1995-03-10', 'Regular', 'Bob Johnson', 27),
-('Alice', 'Williams', 'alice.williams@example.com', 'p@ssw0rd', 'Female', '1992-11-05', 'Regular', 'Alice Williams', 30),
-('Michael', 'Miller', 'michael.miller@example.com', 'secret123', 'Male', '1988-07-18', 'Regular', 'Michael Miller', 34),
-('Emily', 'Taylor', 'emily.taylor@example.com', 'securePwd123', 'Female', '1983-04-30', 'Admin', 'Emily Taylor', 39),
-('Daniel', 'Brown', 'daniel.brown@example.com', 'brownPass', 'Male', '1998-09-12', 'Regular', 'Daniel Brown', 24),
-('Olivia', 'Jones', 'olivia.jones@example.com', 'passOlivia', 'Female', '1994-06-25', 'Regular', 'Olivia Jones', 28),
-('William', 'Davis', 'william.davis@example.com', 'davisPwd', 'Male', '1996-02-08', 'Regular', 'William Davis', 26),
-('Sophia', 'Clark', 'sophia.clark@example.com', 'passSophia', 'Female', '1991-12-03', 'Regular', 'Sophia Clark', 31);
-
-INSERT INTO [User] (User_FirstName, User_LastName, UserEmail, UserPassword, Gender, DateofBirth, UserType, User_FullName, Age)
-VALUES
-  ('Alifie', 'Johnson', 'alice.johnson@example.com', 'password456', 'Female', '1993-05-20', 'Regular', 'Alice Johnson', 29),
-  ('Bob', 'Anderson', 'bob.anderson@example.com', 'pass123', 'Male', '1990-09-15', 'Regular', 'Bob Anderson', 32),
-  ('Catherine', 'Smith', 'catherine.smith@example.com', 'securePwd789', 'Female', '1987-02-10', 'Regular', 'Catherine Smith', 35),
-  ('David', 'Williams', 'david.williams@example.com', 'p@ssw0rd123', 'Male', '1995-11-25', 'Regular', 'David Williams', 27),
-  ('Eva', 'Jones', 'eva.jones@example.com', 'secret789', 'Female', '1984-07-18', 'Regular', 'Eva Jones', 38),
-  ('Frank', 'Taylor', 'frank.taylor@example.com', 'securePwd456', 'Male', '1998-03-30', 'Regular', 'Frank Taylor', 24),
-  ('Grace', 'Brown', 'grace.brown@example.com', 'brownPass789', 'Female', '1991-12-05', 'Regular', 'Grace Brown', 30),
-  ('Harry', 'Clark', 'harry.clark@example.com', 'passHarry789', 'Male', '1996-06-20', 'Regular', 'Harry Clark', 26),
-  ('Ivy', 'Miller', 'ivy.miller@example.com', 'millerPwd789', 'Female', '1994-03-10', 'Regular', 'Ivy Miller', 28),
-  ('James', 'Davis', 'james.davis@example.com', 'davisPwd789', 'Male', '1992-08-15', 'Regular', 'James Davis', 30);
+  ('John', 'Doe', 'john.doe@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'password123'), 'Male', '1990-01-15', 'Regular', 'John Doe', 32),
+('Jane', 'Smith', 'jane.smith@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'pass456'), 'Female', '1985-08-22', 'Admin', 'Jane Smith', 37),
+('Bob', 'Johnson', 'bob.johnson@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'securePwd'), 'Male', '1995-03-10', 'Regular', 'Bob Johnson', 27),
+('Alice', 'Williams', 'alice.williams@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'p@ssw0r)d'), 'Female', '1992-11-05', 'Regular', 'Alice Williams', 30),
+('Michael', 'Miller', 'michael.miller@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'secret123'), 'Male', '1988-07-18', 'Regular', 'Michael Miller', 34),
+('Emily', 'Taylor', 'emily.taylor@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'securePwd123'), 'Female', '1983-04-30', 'Admin', 'Emily Taylor', 39),
+('Daniel', 'Brown', 'daniel.brown@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'brownPass'), 'Male', '1998-09-12', 'Regular', 'Daniel Brown', 24),
+('Olivia', 'Jones', 'olivia.jones@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'passOlivia'), 'Female', '1994-06-25', 'Regular', 'Olivia Jones', 28),
+('William', 'Davis', 'william.davis@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'davisPwd'), 'Male', '1996-02-08', 'Regular', 'William Davis', 26),
+('Sophia', 'Clark', 'sophia.clark@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'passSophia'), 'Female', '1991-12-03', 'Regular', 'Sophia Clark', 31),
+('Alifie', 'Johnson', 'alice.johnson@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'password456'), 'Female', '1993-05-20', 'Regular', 'Alice Johnson', 29),
+('Bob', 'Anderson', 'bob.anderson@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'pass123'), 'Male', '1990-09-15', 'Regular', 'Bob Anderson', 32),
+('Catherine', 'Smith', 'catherine.smith@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'securePwd789'), 'Female', '1987-02-10', 'Regular', 'Catherine Smith', 35),
+('David', 'Williams', 'david.williams@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'p@ssw0rd12)'), 'Male', '1995-11-25', 'Regular', 'David Williams', 27),
+('Eva', 'Jones', 'eva.jones@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'secret789'), 'Female', '1984-07-18', 'Regular', 'Eva Jones', 38),
+('Frank', 'Taylor', 'frank.taylor@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'securePwd456'), 'Male', '1998-03-30', 'Regular', 'Frank Taylor', 24),
+('Grace', 'Brown', 'grace.brown@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'brownPass789'), 'Female', '1991-12-05', 'Regular', 'Grace Brown', 30),
+('Harry', 'Clark', 'harry.clark@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'passHarry789'), 'Male', '1996-06-20', 'Regular', 'Harry Clark', 26),
+('Ivy', 'Miller', 'ivy.miller@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'millerPwd789'), 'Female', '1994-03-10', 'Regular', 'Ivy Miller', 28),
+('James', 'Davis', 'james.davis@example.com', ENCRYPTBYPASSPHRASE('SuperStrongPass123', 'davisPwd789'), 'Male', '1992-08-15', 'Regular', 'James Davis', 30);
 
 
 INSERT INTO Seller
