@@ -142,3 +142,33 @@ BEGIN
     END
 END;
 
+
+
+-- Create trigger to change BidStatusID when EndDate is passed for a specific AuctionID
+CREATE TRIGGER TRIGGER_UpdateBidStatusOnEndDate
+ON Auction
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Check if the EndDate is updated to the current date or earlier
+    IF UPDATE(EndDate) AND EXISTS (
+        SELECT 1
+        FROM inserted i
+        INNER JOIN deleted d ON i.AuctionID = d.AuctionID
+        WHERE i.EndDate <= GETDATE() AND i.EndDate <> d.EndDate
+    )
+    BEGIN
+        -- Update the BidStatusID to 2 for the bid with the highest bid price
+        UPDATE BidLog
+        SET BidStatusID = 2
+        FROM BidLog bl
+        INNER JOIN (
+            SELECT TOP 1 b.BidID
+            FROM Bid b
+            WHERE b.AuctionID IN (SELECT AuctionID FROM inserted)
+            ORDER BY b.BidPrice DESC
+        ) AS highestBid ON bl.BidID = highestBid.BidID;
+    END
+END;
