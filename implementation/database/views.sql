@@ -73,7 +73,7 @@ AS
   WHERE
     UserType = 'Regular';
 
-
+-- Create view DetailedBidInfo
 CREATE VIEW DetailedBidInfo AS
 SELECT
     b.BidID,
@@ -88,7 +88,7 @@ JOIN Auction a ON b.AuctionID = a.AuctionID
 JOIN BidLog bl ON b.BidID = bl.BidID
 JOIN [User] u ON bl.BuyerID = u.UserID;
 
-
+-- Create view to TotalBidsOverTime
 CREATE VIEW TotalBidsOverTime AS
 SELECT 
     CAST(b.BidTimestamp AS DATE) AS BidDate,
