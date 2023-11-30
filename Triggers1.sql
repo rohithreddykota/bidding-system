@@ -8,7 +8,7 @@ BEGIN
                FROM inserted
                WHERE BuyNowPrice <= BasePrice)
     BEGIN
-        RAISERROR ('BuyNowPrice must be greater than BasePrice in Auction table.', 16, 1);
+        RAISERROR ('BuyNowPrice must be greater than BasePrice in Auction table.',16, 1);
         ROLLBACK TRANSACTION;
     END
 END;
