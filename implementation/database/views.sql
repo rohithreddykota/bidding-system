@@ -1,3 +1,4 @@
+-- Create ActiveAuctionsView
 CREATE VIEW ActiveAuctionsView
 AS
   SELECT
@@ -18,7 +19,7 @@ AS
   WHERE
     A.StartDate <= GETDATE() AND A.EndDate >= GETDATE();
 
-
+-- Create HighlyRatedSellersView
 CREATE VIEW HighlyRatedSellersView
 AS
   SELECT
