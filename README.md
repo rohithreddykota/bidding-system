@@ -1,4 +1,4 @@
-# Project Group 06
+# Project Group 6
 
 ## Introduction of Bidding System on system like Facebook Marketplace
 
