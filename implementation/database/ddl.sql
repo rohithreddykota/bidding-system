@@ -67,7 +67,7 @@ CREATE TABLE [User]
   User_LastName VARCHAR(255) NOT NULL,
   UserEmail VARCHAR(255) NOT NULL UNIQUE,
   -- Add UNIQUE constraint for UserEmail
-  UserPassword VARCHAR(255) NOT NULL,
+  UserPassword VARBINARY(255) NOT NULL,
   Gender VARCHAR(255) NOT NULL,
   DateofBirth DATE NOT NULL,
   UserType VARCHAR(255) NOT NULL,
