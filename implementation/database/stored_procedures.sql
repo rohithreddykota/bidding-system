@@ -1,6 +1,6 @@
 -- Stored procedures
 
-USE BIDDING_SYSTEM                                
+USE BIDDING_SYSTEM;
 
 -- Stored procedure for Inserting new User
 CREATE PROCEDURE InsertNewUser

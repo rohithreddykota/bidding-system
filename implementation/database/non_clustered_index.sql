@@ -1,4 +1,4 @@
-Use BIDDING_SYSTEM
+Use BIDDING_SYSTEM;
 
 -- Nonclustered index for BuyerID in Chat table
 CREATE NONCLUSTERED INDEX IX_BuyerID_Chat

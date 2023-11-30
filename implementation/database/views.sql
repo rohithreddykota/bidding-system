@@ -1,3 +1,5 @@
+USE BIDDING_SYSTEM;
+
 -- Create ActiveAuctionsView
 CREATE VIEW ActiveAuctionsView
 AS
@@ -15,9 +17,7 @@ AS
   FROM
     Auction A
     JOIN AdItem AI ON A.AdItemID = AI.AdItemID
-    JOIN Seller S ON AI.SellerID = S.SellerID
-  WHERE
-    A.StartDate <= GETDATE() AND A.EndDate >= GETDATE();
+    JOIN Seller S ON AI.SellerID = S.SellerID;
 
 -- Create HighlyRatedSellersView
 CREATE VIEW HighlyRatedSellersView
