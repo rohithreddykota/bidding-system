@@ -4,12 +4,12 @@
 - [x] Create DML for all tables (insert atleast 10 rows)
 - [x] Create table level check constraints
 - [ ] Create views for all tables
-  - [ ] Use views in the dashboard
-- [ ] Create Computed Column based on UDF
-- [ ] Create Non-Clustered Indexes
-- [ ] Create Stored Procedures
-- [ ] Create DML Triggers
-- [ ] Create Column Encryption on all password columns
+- [ ] Use views in the dashboard
+- [x] Create Computed Column based on UDF
+- [x] Create Non-Clustered Indexes
+- [x] Create Stored Procedures
+- [x] Create DML Triggers
+- [x] Create Column Encryption on all password columns
 
 > For each task, create a file.
 
@@ -70,31 +70,31 @@
 
 Add check constraints
 
-- [ ] `Block:` CONSTRAINT Reason_CHK CHECK (Reason IN ('Inappropriate', 'Spam', 'Other')),
-- [ ] `Admin:` CONSTRAINT AdminRole_CHK CHECK (AdminRole IN ('Super', 'Regular'))
-- [ ] `Feedback:` CONSTRAINT FeedbackRating_CHK CHECK (FeedbackRating IN (1, 2, 3, 4, 5)),
-- [ ] `Alert:` CONSTRAINT AlertType_CHK CHECK (AlertType IN ('Bid', 'Buy', 'Sell')),
-- [ ] `AdItemWatchList:` CONSTRAINT AdItemWatchListEventType_CHK CHECK (EventType IN ('Active', 'Inactive', 'Sold')),
+- [x] `Block:` CONSTRAINT Reason_CHK CHECK (Reason IN ('Inappropriate', 'Spam', 'Other')),
+- [x] `Admin:` CONSTRAINT AdminRole_CHK CHECK (AdminRole IN ('Super', 'Regular'))
+- [x] `Feedback:` CONSTRAINT FeedbackRating_CHK CHECK (FeedbackRating IN (1, 2, 3, 4, 5)),
+- [x] `Alert:` CONSTRAINT AlertType_CHK CHECK (AlertType IN ('Bid', 'Buy', 'Sell')),
+- [x] `AdItemWatchList:` CONSTRAINT AdItemWatchListEventType_CHK CHECK (EventType IN ('Active', 'Inactive', 'Sold')),
 
 ## Create views for all tables
 
-- [ ] Create view for table User masking password
-- [ ] Create view for associated tables with corresponding foreign key values. For example, AdItemCategoryName, AdStatusName, etc.
+- [x] Create view for table User masking password
+- [x] Create view for associated tables with corresponding foreign key values. For example, AdItemCategoryName, AdStatusName, etc.
 
 ## Create Computed Column based on UDF
 
-- [ ] Create a UDF to calculate the age of the user
-- [ ] Create a computed column to know if the adItem is active or not based on the adItemEndDate
-- [ ] Create a computed column to know if the bid is active or not based on the bidEndDate
-- [ ] Create a computed column in the AdItem table to know if the adItem is sold or not based on the bidEndDate
+- [x] Create a UDF to calculate the age of the user
+- [x] Create a computed column to know if the adItem is active or not based on the adItemEndDate
+- [x] Create a computed column to know if the bid is active or not based on the bidEndDate
+- [x] Create a computed column in the AdItem table to know if the adItem is sold or not based on the bidEndDate
 
 ## Create Non-Clustered Indexes
 
-- [ ] Create Non-Clustered Indexes on all foreign key columns
-- [ ] Create Non-Clustered Indexes on all columns used in the where clause
-- [ ] Create Non-Clustered Indexes on all columns used in the join clause
-- [ ] Create Non-Clustered Indexes on all columns used in the order by clause
-- [ ] Create Non-Clustered Indexes on all columns used in the group by clause
+- [x] Create Non-Clustered Indexes on all foreign key columns
+- [x] Create Non-Clustered Indexes on all columns used in the where clause
+- [x] Create Non-Clustered Indexes on all columns used in the join clause
+- [x] Create Non-Clustered Indexes on all columns used in the order by clause
+- [x] Create Non-Clustered Indexes on all columns used in the group by clause
 
 ## Create Stored Procedures
 
