@@ -72,3 +72,15 @@ AS
     [User]
   WHERE
     UserType = 'Regular';
+
+
+CREATE VIEW AuctionParticipationOverTime AS
+SELECT 
+    a.AuctionID,
+    a.Title,
+    CAST(b.BidTimestamp AS DATE) AS BidDate,
+    COUNT(*) AS TotalBids
+FROM Auction a
+JOIN Bid b ON a.AuctionID = b.AuctionID
+GROUP BY a.AuctionID, a.Title, CAST(b.BidTimestamp AS DATE)
+ORDER BY a.AuctionID, BidDate;
