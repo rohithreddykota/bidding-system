@@ -2,7 +2,7 @@
 
 ## Introduction of Bidding System on Facebook Marketplace
 
-Introducing bidding feature to the existing Facebook marketplace.
+Introducing a bidding feature to the existing Facebook marketplace.
 
 ## Group Members
 
@@ -20,7 +20,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 
 [P4. Implementation - Database Objects With Screenshots](P4.%20Implementation.md)
 
-> See `implementation/database` folder for [sql scripts](implementation/database)
+> See theimplementation/database` folder for [sql scripts](implementation/database)
 
 ### Implementation Details
 
@@ -41,6 +41,6 @@ Introducing bidding feature to the existing Facebook marketplace.
 
 > Note: See [P4. Implementation](P4.%20Implementation.md) for more details and results.
 
-## Dashboard
+## Dashboard 
 
-![dashboard](images/dashboard.png)
+![dashboard](images/dashboard.png) 
