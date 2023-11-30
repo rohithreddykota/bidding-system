@@ -22,7 +22,6 @@ Introducing bidding feature to the existing Facebook marketplace.
 
 ### Implementation Details
 
-
 | Object Type                        | Quantity or Comments | Yes/No |
 | ---------------------------------- | -------------------- | ------ |
 | Tables                             | 17                   | Yes    |
@@ -35,7 +34,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 | DML Triggers                       | 7                    | Yes    |
 | Column Data Encryption             | 2                    | Yes    |
 | BI Data Visualization              | Yes                  | Yes    |
-| GUI for CRUD Operations (optional) | No                   | Yes    |
+| GUI for CRUD Operations (optional) | No                   | No     |
 | Other                              |                      |        |
 
 > Note: See [P4. Implementation](P4.%20Implementation.md) for more details and results.
