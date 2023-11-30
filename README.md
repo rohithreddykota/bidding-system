@@ -18,7 +18,9 @@ Introducing bidding feature to the existing Facebook marketplace.
 
 [P3. Final ERD](P3.%20Final%20ERD.md)
 
-[P4. Implementation](P4.%20Implementation.md)
+[P4. Implementation - Database Objects With Screenshots](P4.%20Implementation.md)
+
+> See `implementation/database` folder for [sql scripts](implementation/)
 
 ### Implementation Details
 
