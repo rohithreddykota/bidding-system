@@ -20,7 +20,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 
 [P4. Implementation - Database Objects With Screenshots](P4.%20Implementation.md)
 
-> See `implementation/database` folder for [sql scripts](implementation/)
+> See `implementation/database` folder for [sql scripts](implementation/database)
 
 ### Implementation Details
 
