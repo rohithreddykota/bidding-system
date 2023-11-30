@@ -87,12 +87,14 @@ ON Auction
 AFTER INSERT, UPDATE
 AS
 BEGIN
-  SET NOCOUNT ON;
-
-  IF (SELECT COUNT(*) FROM inserted WHERE BuyNowPrice < BasePrice) > 0
-  BEGIN
-    ROLLBACK;
-  END
+    -- Check if BuyNowPrice is greater than BasePrice
+    IF EXISTS (SELECT *
+               FROM inserted
+               WHERE BuyNowPrice <= BasePrice)
+    BEGIN
+        RAISERROR ('BuyNowPrice must be greater than BasePrice in Auction table.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
 END;
 
 -- if bidprice matches buynow price, bid will be won and auction ends immediately
