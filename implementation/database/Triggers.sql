@@ -26,15 +26,14 @@ BEGIN
 END;
 
 
---Prevents the addition of new auction for an aditem if an existing auction for the auctionitem is active and the inserting startdate is greater than enddate
-
-ALTER TRIGGER TRIGGER_PreventDuplicateAuction
+-- Prevents the addition of new auction for an aditem if an existing auction for the auctionitem is active and the inserting startdate is greater than enddate
+-- Note: This must throw error
+CREATE TRIGGER TRIGGER_PreventDuplicateAuction
 ON Auction
 INSTEAD OF INSERT
 AS
 BEGIN
     SET NOCOUNT ON;
-
     -- Check for active existing auction for each AdItem in the inserted rows
     IF EXISTS (
         SELECT 1
@@ -82,7 +81,6 @@ BEGIN
     WHERE ins.EndDate <= GETDATE() OR i.AdStatusID IN (2, 3, 4);
 END;
 
-
 -- Create trigger to check BuyNowPrice > BasePrice
 CREATE TRIGGER CheckBuyNowPrice
 ON Auction
@@ -98,7 +96,6 @@ BEGIN
 END;
 
 -- if bidprice matches buynow price, bid will be won and auction ends immediately
-
 CREATE TRIGGER TRIGGER_UpdateBidStatusAndAuction
 ON Bid
 AFTER INSERT
@@ -120,7 +117,6 @@ BEGIN
     WHERE i.BidPrice = a.BuyNowPrice;
 END;
 
-
 -- if bid is won, aditem status changes to sold
 
 CREATE TRIGGER TRIGGER_UpdateAdStatusOnBidWon
@@ -129,7 +125,6 @@ AFTER UPDATE
 AS
 BEGIN
     SET NOCOUNT ON;
-
     IF UPDATE(BidStatusID)
     BEGIN
         UPDATE AdItem
@@ -141,8 +136,6 @@ BEGIN
         WHERE i.BidStatusID = 2;
     END
 END;
-
-
 
 -- Create trigger to change BidStatusID when EndDate is passed for a specific AuctionID
 CREATE TRIGGER TRIGGER_UpdateBidStatusOnEndDate

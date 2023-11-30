@@ -1,5 +1,5 @@
 Use BIDDING_SYSTEM
-go
+GO
 
 -- Create a UDF to concatenate User_FirstName and User_LastName
 CREATE FUNCTION GetFullName
@@ -14,7 +14,6 @@ BEGIN
     SET @FullName = @FirstName + ' ' + @LastName;
     RETURN @FullName;
 END;
-
 
 
 -- Create a UDF to calculate Age

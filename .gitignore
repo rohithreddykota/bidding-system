@@ -3,3 +3,5 @@
 *-internal-draft.md
 *.pdf
 *.log
+.DS_Store
+scratch.sql

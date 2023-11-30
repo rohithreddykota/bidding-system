@@ -1,7 +1,8 @@
-                                              -- Stored procedures
+-- Stored procedures
 
- use BIDDING_SYSTEM                                -- Stored procedure for Inserting new User
+USE BIDDING_SYSTEM                                
 
+-- Stored procedure for Inserting new User
 CREATE PROCEDURE InsertNewUser
     @FirstName VARCHAR(255),
     @LastName VARCHAR(255),
@@ -34,9 +35,9 @@ EXEC [dbo].InsertNewUser
     @Gender = 'Male',
     @DateOfBirth = '1990-01-01',
     @UserType = 'Regular';
-                                     //-- Stored procedure for Updating a User
 
-  CREATE PROCEDURE UpdateUser
+-- Stored procedure for Updating a User
+CREATE PROCEDURE UpdateUser
     @UserID INT,
     @FirstName VARCHAR(255),
     @LastName VARCHAR(255),
@@ -53,7 +54,6 @@ BEGIN
     BEGIN
         RETURN;
     END
-
     -- Update the user information
     UPDATE [User]
     SET
@@ -70,15 +70,8 @@ BEGIN
 
 END;
 
-  
-  
-  
-  
- 
-
-                                            //-- Stored procedure for Insert AdItem
-
-  CREATE PROCEDURE InsertAdItem
+-- Stored procedure for Insert AdItem
+CREATE PROCEDURE InsertAdItem
   @AdminID INT,
   @CategoryID INT,
   @SellerID INT,
@@ -100,7 +93,7 @@ EXEC InsertAdItem
   @Title = 'New AdItem',  
   @AdDescription = 'Description';  
 
-                                  //-- Stored procedure for displaying the buyers list who bought for the same category 
+-- Stored procedure for displaying the buyers list who bought for the same category 
   CREATE PROCEDURE GetBuyersByCategory
   @CategoryName VARCHAR(255)
 AS
@@ -119,7 +112,7 @@ EXEC GetBuyersByCategory
   @CategoryName = 'Clothing';
 
 
-                                        //-- Stored procedure for deleting a chat
+-- Stored procedure for deleting a chat
 
 CREATE PROCEDURE DeleteChat
   @ChatID INT
@@ -134,9 +127,9 @@ BEGIN
   @ChatID = 1;
 
 
-                                           //-- Stored procedure for deleting a chat
+-- Stored procedure for deleting a chat
 
-  CREATE PROCEDURE DeleteFeedback
+CREATE PROCEDURE DeleteFeedback
   @FeedbackID INT
 AS
 BEGIN
@@ -147,13 +140,3 @@ END;
 
 EXEC DeleteFeedback
   @FeedbackID = 3;
-
-                                
-
-                                 
-								   
-
-
-
-
- 	                                                
