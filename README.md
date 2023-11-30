@@ -27,7 +27,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 | Object Type                        | Quantity or Comments | Yes/No |
 | ---------------------------------- | -------------------- | ------ |
 | Tables                             | 17                   | Yes    |
-| Views                              | 4                    | Yes    |
+| Views                              | 6                    | Yes    |
 | Table Level Check Constraint       | 6                    | Yes    |
 | Computed Column based on UDF       | 2                    | Yes    |
 | Non-Clustered Indexes              | 14                   | Yes    |
@@ -40,3 +40,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 | Other                              |                      |        |
 
 > Note: See [P4. Implementation](P4.%20Implementation.md) for more details and results.
+
+## Dashboard
+
+![dashboard](images/dashboard.png)
