@@ -1,6 +1,6 @@
 # Project Group 6
 
-## Introduction of Bidding System on system like Facebook Marketplace
+## Introduction of Bidding System on Facebook Marketplace
 
 Introducing a bidding feature to the existing Facebook marketplace.
 
