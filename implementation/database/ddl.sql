@@ -13,10 +13,6 @@ GO
 CREATE DATABASE BIDDING_SYSTEM;
 GO
 
--- Enable TDE on the database
-USE BIDDING_SYSTEM;
-GO
-
 IF NOT EXISTS (SELECT * FROM sys.symmetric_keys WHERE symmetric_key_id = 101)
 BEGIN
     -- Create a master key if it doesn't exist
@@ -39,6 +35,10 @@ ELSE
 BEGIN
     PRINT 'Certificate already exists.';
 END
+GO
+
+-- Enable TDE on the database
+USE BIDDING_SYSTEM;
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.dm_database_encryption_keys WHERE database_id = DB_ID() AND encryption_state = 3)
