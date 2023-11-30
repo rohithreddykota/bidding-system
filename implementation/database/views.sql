@@ -72,3 +72,24 @@ AS
     [User]
   WHERE
     UserType = 'Regular';
+
+-- Views to display Total Bids over Time
+CREATE VIEW TotalBidsOverTime AS
+SELECT 
+    CAST(b.BidTimestamp AS DATE) AS BidDate,
+    COUNT(*) AS TotalBids
+FROM Bid b
+GROUP BY CAST(b.BidTimestamp AS DATE)
+ORDER BY BidDate;
+
+
+-- Views to display DistinctUserParticipationOverTime
+CREATE VIEW DistinctUserParticipationOverTime AS
+SELECT 
+    CAST(b.BidTimestamp AS DATE) AS BidDate,
+    COUNT(DISTINCT bl.BuyerID) AS DistinctUsers
+FROM Bid b
+JOIN BidLog bl ON b.BidID = bl.BidID
+GROUP BY CAST(b.BidTimestamp AS DATE)
+ORDER BY BidDate;
+
