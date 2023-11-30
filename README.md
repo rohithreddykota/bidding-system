@@ -32,7 +32,7 @@ Introducing bidding feature to the existing Facebook marketplace.
 | Non-Clustered Indexes              | 14                   | Yes    |
 | Stored Procedures                  | 6                    | Yes    |
 | User Defined Functions (UDF)       | 3                    | Yes    |
-| DML Triggers                       | 9                    | Yes    |
+| DML Triggers                       | 7                    | Yes    |
 | Column Data Encryption             | 2                    | Yes    |
 | BI Data Visualization              | Yes                  | Yes    |
 | GUI for CRUD Operations (optional) | No                   | Yes    |
