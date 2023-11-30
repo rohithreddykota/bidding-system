@@ -1,10 +1,10 @@
-# Project Group 6
+# Project Group 06
 
-## Introduction of Bidding System on Facebook Marketplace
+## Introduction of Bidding System on system like Facebook Marketplace
 
 Introducing a bidding feature to the existing Facebook marketplace.
 
-## Group Members
+## Group Members 
 
 - Rohith Kumar Reddy Kota
 - Nikhil Godalla
